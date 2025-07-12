@@ -1,16 +1,17 @@
 import React from "react";
 import Link from "next/link";
-
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
-import { Order, Product } from "@/sanity.types";
+import { MY_ORDERS_QUERYResult } from "@/sanity.types";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
 import { Button } from "../ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
 import PriceFormatter from "../products/PriceFormatter";
 
+
+
 interface OrderDetailsDialogProps {
-  order: Order | null;
+  order: MY_ORDERS_QUERYResult[number] | null;
   isOpen: boolean;
   onClose: () => void;
 }
@@ -20,8 +21,8 @@ const OrderDetailDialog: React.FC<OrderDetailsDialogProps> = ({
   isOpen,
   onClose,
 }) => {
-  if (!order) return null;
 
+  if (!order) return null;
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="!max-w-4xl max-h-[90vh] overflow-y-scroll">
@@ -67,7 +68,7 @@ const OrderDetailDialog: React.FC<OrderDetailsDialogProps> = ({
             </TableRow>
           </TableHeader>
           <TableBody>
-            {order.products?.map((product: any, index) => (
+            {order.products?.map((product, index) => (
               <TableRow key={index}>
                 <TableCell className="flex items-center gap-2">
                   {product?.product?.images && (
@@ -80,7 +81,7 @@ const OrderDetailDialog: React.FC<OrderDetailsDialogProps> = ({
                     />
                   )}
 
-                  {product?.product && product?.product?.name}
+                  {product && product?.product?.name}
                 </TableCell>
                 <TableCell>{product?.quantity}</TableCell>
                 <TableCell>

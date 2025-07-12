@@ -1,12 +1,12 @@
 import Container from "@/components/Container"
-import ProductCard from "@/components/ProductCard"
+import ProductCard from "@/components/products/ProductCard"
 import { Title } from "@/components/ui/text"
-import { Product } from "@/sanity.types"
+import { FETCH_HOT_DEALS_QUERYResult, Product } from "@/sanity.types"
 import { getHotDeals } from "@/sanity/queries"
 
 export default async function HotDeals() {
 
-  const deals = await getHotDeals()
+  const products: FETCH_HOT_DEALS_QUERYResult = await getHotDeals()
   return (
     <div className="py-10 bg-deal-bg">
       <Container className="">
@@ -14,9 +14,9 @@ export default async function HotDeals() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5">
           {
-            deals?.map((deal: Product, index: number) => {
+            products?.map((product) => {
               return (
-                <ProductCard key={index} product={deal} />
+                <ProductCard key={product?._id} product={product} />
               )
             })
           }

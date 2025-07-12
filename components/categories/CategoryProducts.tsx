@@ -1,10 +1,9 @@
 'use client'
 
-import { Category } from "@/sanity.types"
+import { Category, Product } from "@/sanity.types"
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
-import { getBrands } from "@/sanity/queries";
 import { client } from "@/sanity/lib/client";
 import { FETCH_PRODUCTS_BY_CATEGORY } from "@/sanity/queries/query";
 import ProductCard from "../products/ProductCard";
@@ -22,7 +21,7 @@ export default function CategoryProduct(
 ) {
 
   const [currentSlug, setCurrentSlug] = useState(slug);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
@@ -45,9 +44,8 @@ export default function CategoryProduct(
     try {
 
       const data = await client.fetch(FETCH_PRODUCTS_BY_CATEGORY, { categorySlug })
-      setLoading(false)
 
-      return setProducts(data ?? [])
+      return data ? setProducts(data ?? []) : []
 
 
     } catch (error) {
@@ -59,10 +57,7 @@ export default function CategoryProduct(
     }
   }
 
-  // console.log("@router", router)
-
   useEffect(() => {
-    // console.log(currentSlug)
     getProductsByCategory(currentSlug)
   }, [router])
 
@@ -100,7 +95,7 @@ export default function CategoryProduct(
 
                       <AnimatePresence key={index}>
                         <motion.div>
-                          <ProductCard product={product} />
+                          <ProductCard key={index} product={product} />
                         </motion.div>
                       </AnimatePresence>
 

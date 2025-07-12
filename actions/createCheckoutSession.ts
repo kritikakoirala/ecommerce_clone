@@ -15,12 +15,13 @@ export interface Metadata {
   address?: Address | null
 }
 
-export interface GroupedItemsType {
-  groupedItems: CartItem['product'],
-  quantity?: number
+export interface GroupedCartItems {
+  product: CartItem["product"];
+  quantity: number;
 }
 
-export async function createCheckoutSession(items: GroupedItemsType[], metadata: Metadata) {
+
+export async function createCheckoutSession(items: GroupedCartItems[], metadata: Metadata) {
 
 
   try {

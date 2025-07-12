@@ -5,16 +5,16 @@ import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
 import { Calendar } from "lucide-react";
 import { Title } from "../ui/text";
-import { Blog } from "@/sanity.types";
+import { Blog, FETCH_LATEST_BLOGSResult } from "@/sanity.types";
 import { dateFormatter } from "@/lib/utils";
 
 const LatestBlog = async () => {
-  const blogs = await getLatestBlogs();
+  const blogs: FETCH_LATEST_BLOGSResult = await getLatestBlogs();
   return (
     <div className="mb-10 lg:mb-20">
       <Title>Latest Blog</Title>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
-        {blogs?.map((blog: Blog) => (
+        {blogs?.map((blog) => (
 
           <div key={blog?._id} className="rounded-lg overflow-hidden">
             {blog?.mainImage && (

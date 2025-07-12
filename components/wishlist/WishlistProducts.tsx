@@ -10,8 +10,7 @@ import AddToCartButton from "../products/AddToCartButton";
 import PriceFormatter from "../products/PriceFormatter";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
-import { Toaster } from "../ui/sonner";
-import { Category, Product } from "@/sanity.types";
+import { Product } from "@/sanity.types";
 import { toast } from "sonner";
 
 export default function WishlistProducts() {

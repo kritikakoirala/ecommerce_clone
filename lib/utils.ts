@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 
-export function dateFormatter(date: Date | undefined): string {
+export function dateFormatter(date: string | undefined): string {
 
   if (!date) return '';
 

@@ -1,10 +1,10 @@
-import { Brand } from "@/sanity.types"
+import { Brand, FETCH_BRANDS_QUERYResult } from "@/sanity.types"
 import { Title } from "../ui/text"
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group"
 import { Label } from "../ui/label"
 
 interface Props {
-  brands: Brand[],
+  brands: FETCH_BRANDS_QUERYResult,
   selectedBrand: string | null,
   setSelectedBrand: (brand: string | null) => void
 }

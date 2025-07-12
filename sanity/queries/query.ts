@@ -33,9 +33,11 @@ const FETCH_BRAND_BY_SLUG_QUERY = defineQuery(`*[_type=='product' && slug.curren
 
 const MY_ORDERS_QUERY =
   defineQuery(`*[_type == 'order' && clerkUserId == $userId] | order(orderData desc){
-...,products[]{
-  ...,product->
-}
+  ...,
+  "products":
+    products[]{
+      ...,product->
+  }
 }`);
 
 

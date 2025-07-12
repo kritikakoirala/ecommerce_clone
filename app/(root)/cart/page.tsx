@@ -4,7 +4,7 @@ import EmptyCart from "@/components/cart/EmptyCart";
 import NoAccess from "@/components/cart/NoAccess";
 import Container from "@/components/Container";
 import { Title } from "@/components/ui/text";
-import { Address, Product } from "@/sanity.types";
+import { Address } from "@/sanity.types";
 import { urlFor } from "@/sanity/lib/image";
 import useStore from "@/store";
 import { useAuth, useUser } from "@clerk/nextjs";
@@ -97,14 +97,8 @@ export default function Cart() {
         customerEmail: user?.emailAddresses[0]?.emailAddress ?? "Unknown",
         clerkUserId: user?.id,
         address: selectedAddress
-
-
       }
-
-      // console.log("@grouped", groupedItems)
       const checkoutUrl = await createCheckoutSession(groupedItems, metadata)
-
-      console.log(checkoutUrl)
 
       if (checkoutUrl) {
         window.location.href = checkoutUrl

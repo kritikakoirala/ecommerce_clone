@@ -4,6 +4,7 @@ import FavoriteContainer from "@/components/products/FavoriteContainer";
 import ImageView from "@/components/products/ImageView"
 import PriceView from "@/components/products/PriceView";
 import ProductCharacteristics from "@/components/products/ProductCaracteristics";
+import { FETCH_PRODUCT_BY_SLUG_QUERYResult } from "@/sanity.types";
 import { getProductsBySlugs } from "@/sanity/queries"
 import { BadgeQuestionMark, CornerDownLeft, Palette, Share2, StarIcon, Truck, } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -12,14 +13,13 @@ export default async function ProductDetail({ params }: { params: Promise<{ prod
 
   const { productSlug } = await params
 
-  const product = (await getProductsBySlugs(productSlug))[0];
-  const isStock = product?.stock > 0;
+  const product = await getProductsBySlugs(productSlug) as FETCH_PRODUCT_BY_SLUG_QUERYResult;
+  const isStock = product?.stock !== undefined && product?.stock > 0;
 
   if (!product) return notFound()
 
   return (
     <>
-
       <Container className="flex flex-col md:flex-row gap-10 pb-10 mt-10 pe-6">
 
         {

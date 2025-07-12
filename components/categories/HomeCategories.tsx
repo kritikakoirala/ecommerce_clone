@@ -1,12 +1,12 @@
 import { getCategories } from "@/sanity/queries";
 import { Title } from "../ui/text";
-import { Category } from "@/sanity.types";
+import { Category, FETCH_CATEGORYResult } from "@/sanity.types";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
 
 export default async function HomeCategories() {
-  const categories: Category[] = await getCategories(6)
+  const categories: FETCH_CATEGORYResult = await getCategories(6)
   return (
     <>
       <div className="bg-white border border-shop_light_green/20 my-10 md:my-20 p-5 lg:p-7 rounded-md">

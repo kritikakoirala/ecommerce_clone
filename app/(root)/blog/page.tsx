@@ -1,7 +1,7 @@
 import Container from "@/components/Container";
 import { Title } from "@/components/ui/text";
 import { dateFormatter } from "@/lib/utils";
-import { Blogcategory } from "@/sanity.types";
+import { GET_ALL_BLOGResult } from "@/sanity.types";
 import { urlFor } from "@/sanity/lib/image";
 import { getAllBlogs } from "@/sanity/queries";
 import { Calendar } from "lucide-react";
@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export default async function Blog() {
 
-  const blogs = await getAllBlogs(10);
+  const blogs: GET_ALL_BLOGResult = await getAllBlogs(10);
 
   return (
     <>
@@ -31,7 +31,7 @@ export default async function Blog() {
               <div className="bg-gray-100 p-5">
                 <div className="text-xs flex items-center gap-5">
                   <div className="flex items-center relative group cursor-pointer">
-                    {blog?.blogcategories?.map((item: Blogcategory, index: number) => (
+                    {blog?.blogcategories?.map((item, index: number) => (
                       <p
                         key={index}
                         className="font-semibold text-shop_dark_green tracking-wider"

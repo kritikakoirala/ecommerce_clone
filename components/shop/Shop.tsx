@@ -1,6 +1,6 @@
 'use client'
 
-import { Brand, Category, Product } from "@/sanity.types"
+import { Brand, Category, FETCH_BRANDS_QUERYResult, Product } from "@/sanity.types"
 import Container from "../Container"
 import { Title } from "../ui/text"
 import CategoryList from "./CategoryList"
@@ -15,10 +15,9 @@ import NoProductAvailable from "../products/NoProductAvailable"
 import { useParams, useSearchParams } from "next/navigation"
 
 
-export default function Shop({ categories, brands }: { categories: Category[], brands: Brand[] }) {
+export default function Shop({ categories, brands }: { categories: Category[], brands: FETCH_BRANDS_QUERYResult }) {
 
   const searchParams = useSearchParams()
-  console.log(searchParams.get('brand'))
   const brandParams = searchParams?.get("brand");
 
 
@@ -133,7 +132,7 @@ export default function Shop({ categories, brands }: { categories: Category[], b
 
                             <AnimatePresence key={index}>
                               <motion.div>
-                                <ProductCard product={product} />
+                                <ProductCard key={product?._id} product={product} />
                               </motion.div>
                             </AnimatePresence>
 

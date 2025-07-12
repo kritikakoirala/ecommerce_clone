@@ -34,8 +34,6 @@ export default function ProductGrid() {
         setLoading(false)
       }
     }
-
-
     fetchData()
   }, [selectedtab])
 
@@ -60,7 +58,7 @@ export default function ProductGrid() {
 
                     <AnimatePresence key={index}>
                       <motion.div>
-                        <ProductCard product={product} />
+                        <ProductCard key={product?._id} product={product} />
                       </motion.div>
                     </AnimatePresence>
 
