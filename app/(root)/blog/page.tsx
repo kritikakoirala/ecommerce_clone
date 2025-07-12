@@ -1,15 +1,62 @@
 import Container from "@/components/Container";
 import { Title } from "@/components/ui/text";
-import { getLatestBlogs } from "@/sanity/queries";
+import { dateFormatter } from "@/lib/utils";
+import { Blogcategory } from "@/sanity.types";
+import { urlFor } from "@/sanity/lib/image";
+import { getAllBlogs } from "@/sanity/queries";
+import { Calendar } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default async function Blog() {
 
-  // const blogs = await getLatestBlogs();
+  const blogs = await getAllBlogs(10);
 
   return (
     <>
-      <Container>
-        <Title >Blog page</Title>
+      <Container className="mt-10">
+        <Title>Blog page</Title>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 md:mt-10">
+          {blogs?.map((blog) => (
+            <div key={blog?._id} className="rounded-md overflow-hidden group">
+              {blog?.mainImage && (
+                <Image
+                  src={urlFor(blog?.mainImage).url()}
+                  alt="blogImage"
+                  width={500}
+                  height={500}
+                  className="w-full max-h-80 object-cover"
+                />
+              )}
+              <div className="bg-gray-100 p-5">
+                <div className="text-xs flex items-center gap-5">
+                  <div className="flex items-center relative group cursor-pointer">
+                    {blog?.blogcategories?.map((item: Blogcategory, index: number) => (
+                      <p
+                        key={index}
+                        className="font-semibold text-shop_dark_green tracking-wider"
+                      >
+                        {item?.title}
+                      </p>
+                    ))}
+                    <span className="absolute left-0 -bottom-1.5 bg-lightColor/30 inline-block w-full h-[2px] group-hover:bg-shop_dark_green hover:cursor-pointer hoverEffect" />
+                  </div>
+                  <p className="flex items-center gap-1 text-lightColor relative group hover:cursor-pointer hover:text-shop_dark_green hoverEffect">
+                    <Calendar size={15} />{" "}
+                    {dateFormatter(blog.publishedAt)}
+                    <span className="absolute left-0 -bottom-1.5 bg-lightColor/30 inline-block w-full h-[2px] group-hover:bg-shop_dark_green hoverEffect" />
+                  </p>
+                </div>
+                <Link
+                  href={`/blog/${blog?.slug?.current}`}
+                  className="text-base font-bold tracking-wide mt-5 line-clamp-2 hover:text-shop_dark_green hoverEffect"
+                >
+                  {blog?.title}
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
       </Container>
 
     </>
