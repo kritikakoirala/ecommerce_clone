@@ -1,6 +1,6 @@
 'use client'
 
-import { Brand, Category, FETCH_BRANDS_QUERYResult, Product } from "@/sanity.types"
+import { Category, FETCH_BRANDS_QUERYResult, Product } from "@/sanity.types"
 import Container from "../Container"
 import { Title } from "../ui/text"
 import CategoryList from "./CategoryList"
@@ -12,7 +12,7 @@ import ProductCard from "../products/ProductCard"
 import { Loader2 } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
 import NoProductAvailable from "../products/NoProductAvailable"
-import { useParams, useSearchParams } from "next/navigation"
+import { useSearchParams } from "next/navigation"
 
 
 export default function Shop({ categories, brands }: { categories: Category[], brands: FETCH_BRANDS_QUERYResult }) {

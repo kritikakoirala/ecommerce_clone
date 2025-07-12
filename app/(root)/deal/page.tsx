@@ -1,7 +1,7 @@
 import Container from "@/components/Container"
 import ProductCard from "@/components/products/ProductCard"
 import { Title } from "@/components/ui/text"
-import { FETCH_HOT_DEALS_QUERYResult, Product } from "@/sanity.types"
+import { FETCH_HOT_DEALS_QUERYResult } from "@/sanity.types"
 import { getHotDeals } from "@/sanity/queries"
 
 export default async function HotDeals() {

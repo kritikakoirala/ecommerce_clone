@@ -2,9 +2,7 @@
 
 import { Order } from "@/sanity.types";
 import { format } from "date-fns";
-import { X } from "lucide-react";
 import { useState } from "react";
-import { toast } from "sonner";
 import { TableBody, TableCell, TableRow } from "../ui/table";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip";
 import PriceFormatter from "../products/PriceFormatter";

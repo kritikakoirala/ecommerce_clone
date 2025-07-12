@@ -1,6 +1,6 @@
 import { Facebook, Github, Linkedin, Slack, Youtube } from "lucide-react";
 import Link from "next/link";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { cn } from "@/lib/utils";
 
 

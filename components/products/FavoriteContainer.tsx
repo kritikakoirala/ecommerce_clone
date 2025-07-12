@@ -6,7 +6,6 @@ import { HeartIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { StringDecoder } from "string_decoder";
 
 export default function FavoriteContainer({ product, className }: { product: Product, className?: string }) {
 

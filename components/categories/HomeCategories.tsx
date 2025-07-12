@@ -1,6 +1,6 @@
 import { getCategories } from "@/sanity/queries";
 import { Title } from "../ui/text";
-import { Category, FETCH_CATEGORYResult } from "@/sanity.types";
+import { FETCH_CATEGORYResult } from "@/sanity.types";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
@@ -14,7 +14,7 @@ export default async function HomeCategories() {
 
         <div className="mt-5 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {
-            categories?.map((category, index) => {
+            categories?.map((category) => {
               return (
                 <div key={category?._id} className="bg-shop_light_bg p-5 flex items-center gap-3 group">
                   {

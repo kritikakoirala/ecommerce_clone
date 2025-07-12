@@ -1,9 +1,8 @@
 import { auth, currentUser } from "@clerk/nextjs/server";
 import HeaderMenu from "./HeaderMenu";
 import MobileMenu from "./MobileMenu";
-import SearchBar from "./SearchBar";
 import SignIn from "./SignIn";
-import { ClerkLoaded, SignedIn, SignOutButton, useClerk, UserButton } from "@clerk/nextjs";
+import { ClerkLoaded, SignedIn, UserButton } from "@clerk/nextjs";
 import Container from "../Container";
 import Logo from "../Logo";
 import CartIcon from "./CartIcon";

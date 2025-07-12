@@ -1,4 +1,4 @@
-import { Brand, FETCH_BRANDS_QUERYResult } from "@/sanity.types"
+import { FETCH_BRANDS_QUERYResult } from "@/sanity.types"
 import { Title } from "../ui/text"
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group"
 import { Label } from "../ui/label"

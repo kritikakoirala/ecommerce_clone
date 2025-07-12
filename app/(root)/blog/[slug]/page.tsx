@@ -197,12 +197,12 @@ const BlogLeft = async ({ slug }: { slug: string }) => {
       <div className="border border-lightColor p-5 rounded-md">
         <Title className="text-base">Blog Categories</Title>
         <div className="space-y-2 mt-2">
-          {categories?.map(({ blogcategories }: any, index: number) => (
+          {categories?.map(({ blogcategories }, index: number) => (
             <div
               key={index}
               className="text-lightColor flex items-center justify-between text-sm font-medium"
             >
-              <p>{blogcategories[0]?.title}</p>
+              <p>{blogcategories && blogcategories[0]?.title}</p>
               <p className="text-darkColor font-semibold">{`(1)`}</p>
             </div>
           ))}

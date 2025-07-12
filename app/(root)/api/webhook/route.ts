@@ -1,7 +1,6 @@
 import { Metadata } from "@/actions/createCheckoutSession"
 import { stripe } from "@/lib/stripe"
 import { backendClient } from "@/sanity/lib/backendClient"
-import { error } from "console"
 import { headers } from "next/headers"
 import { NextRequest, NextResponse } from "next/server"
 import Stripe from "stripe"

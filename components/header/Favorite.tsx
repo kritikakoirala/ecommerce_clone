@@ -6,13 +6,13 @@ import Link from "next/link";
 
 export default function Favorite({
   showProduct = false,
-  product,
+
 }: {
   showProduct?: boolean;
   product?: Product | null | undefined;
 }) {
 
-  const { favoriteProduct, addToFavorite } = useStore()
+  const { favoriteProduct } = useStore()
 
   return (
     <>

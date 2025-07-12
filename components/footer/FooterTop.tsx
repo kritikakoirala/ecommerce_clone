@@ -5,7 +5,7 @@ interface ContactFormData {
   title: string,
   subtitle: string,
   icon: React.ReactNode
-}[]
+}
 export default function FooterTop() {
 
   const data: ContactFormData[] = [
