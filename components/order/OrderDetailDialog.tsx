@@ -22,7 +22,6 @@ const OrderDetailDialog: React.FC<OrderDetailsDialogProps> = ({
 }) => {
   if (!order) return null;
 
-  console.log("@order", order)
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="!max-w-4xl max-h-[90vh] overflow-y-scroll">

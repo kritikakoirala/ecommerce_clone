@@ -13,9 +13,6 @@ import OrderDetailDialog from "./OrderDetailDialog";
 
 const OrdersComponent = ({ orders }: { orders: Order[] }) => {
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
-  const handleDelete = () => {
-    toast("Delete method applied for Admin");
-  };
 
   return (
     <>
@@ -66,18 +63,7 @@ const OrdersComponent = ({ orders }: { orders: Order[] }) => {
                       </p>
                     )}
                   </TableCell>
-                  <TableCell
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      handleDelete();
-                    }}
-                    className="flex items-center justify-center group"
-                  >
-                    <X
-                      size={20}
-                      className="group-hover:text-shop_dark_green hoverEffect"
-                    />
-                  </TableCell>
+
                 </TableRow>
               </TooltipTrigger>
               <TooltipContent>

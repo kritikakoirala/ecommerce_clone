@@ -6,8 +6,16 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 
-export function dateFormatter(date: string) {
+export function dateFormatter(date: Date | undefined): string {
 
-  let formattedDate = new Date(date)
-  return formattedDate.toDateString()
+  if (!date) return '';
+
+  const d = new Date(date);
+  if (isNaN(d.getTime())) return ''; // Handle invalid date input
+
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  const yyyy = d.getFullYear();
+
+  return `${mm}/${dd}, ${yyyy}`;
 }

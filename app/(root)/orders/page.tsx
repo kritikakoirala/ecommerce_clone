@@ -50,7 +50,6 @@ export default async function Orders() {
                       <TableHead className="hidden sm:table-cell">
                         Invoice Number
                       </TableHead>
-                      <TableHead className="text-center">Action</TableHead>
                     </TableRow>
                   </TableHeader>
                   <OrdersComponent orders={orders} />
