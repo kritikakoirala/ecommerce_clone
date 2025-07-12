@@ -21,7 +21,10 @@ export default async function HomeCategories() {
                     category?.image &&
 
                     <div className="overflow-hidden border border-shop_orange/20 hover:border-shop_orange w-20 h-20 p-1">
-                      <Link href={`/category/${category?.slug?.current}`}>
+                      <Link
+                        href={`/category/${category?.slug?.current}`}
+
+                      >
                         <Image src={urlFor(category?.image).url()} alt="Category image" width={500} height={500} className="w-full h-full object-contain group-hover:scale-110 hoverEffect" />
                       </Link>
                     </div>

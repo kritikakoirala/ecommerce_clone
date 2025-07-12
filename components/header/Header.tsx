@@ -6,8 +6,8 @@ import SignIn from "./SignIn";
 import { ClerkLoaded, SignedIn, SignOutButton, useClerk, UserButton } from "@clerk/nextjs";
 import Container from "../Container";
 import Logo from "../Logo";
-import CartIcon from "../icons/CartIcon";
-import Favorite from "../icons/Favorite";
+import CartIcon from "./CartIcon";
+import Favorite from "./Favorite";
 
 export default async function Header() {
   const user = await currentUser()

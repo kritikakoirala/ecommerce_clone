@@ -5,6 +5,7 @@ import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 
 
+
 export const metadata: Metadata = {
   title: {
     template: `%s | Shop Online to your heart's content`,
@@ -26,6 +27,7 @@ export default function RootLayout({
         <main className="flex-1 px-6">
           {children}
         </main>
+
 
         <Footer />
       </div>

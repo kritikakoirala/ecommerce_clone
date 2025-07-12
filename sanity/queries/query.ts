@@ -23,10 +23,19 @@ const FETCH_HOT_DEALS_QUERY = defineQuery(`*[_type=='product' && status=='hot'] 
 const FETCH_PRODUCTS_BY_CATEGORY = defineQuery(` *[_type == 'product' && references(*[_type == "category" && slug.current == $categorySlug]._id)] | order(name asc){
         ...,"categories": categories[]->title}`)
 
+const FETCH_PRODUCT_BY_SLUG_QUERY = defineQuery(`*[_type=='product' && slug.current==$productSlug] | order(name asc)`)
+
+
+const FETCH_BRAND_BY_SLUG_QUERY = defineQuery(`*[_type=='product' && slug.current==$slug]{
+
+  "brandName":brand->title
+}`)
 export {
   FETCH_PRODUCTS_QUERY,
   FETCH_BRANDS_QUERY,
   FETCH_LATEST_BLOGS,
   FETCH_HOT_DEALS_QUERY,
-  FETCH_PRODUCTS_BY_CATEGORY
+  FETCH_PRODUCTS_BY_CATEGORY,
+  FETCH_PRODUCT_BY_SLUG_QUERY,
+  FETCH_BRAND_BY_SLUG_QUERY
 }

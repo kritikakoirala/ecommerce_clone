@@ -9,8 +9,5 @@ export function cn(...inputs: ClassValue[]) {
 export function dateFormatter(date: string) {
 
   let formattedDate = new Date(date)
-
-  // console.log(formattedDate.toDateString())
-
   return formattedDate.toDateString()
 }

@@ -6,12 +6,13 @@ import Link from "next/link";
 import { StarIcon } from "@sanity/icons";
 import { Flame } from "lucide-react";
 import { Title } from "../ui/text";
-import AddToWishlistButton from "./AddToWishlistButton";
 import PriceView from "./PriceView";
 import AddToCartButton from "./AddToCartButton";
+import FavoriteContainer from "./FavoriteContainer";
 
 
 const ProductCard = ({ product }: { product: Product }) => {
+
   return (
     <div className="text-sm border-0 rounded-md group bg-white mb-5">
       <div className="relative group overflow-hidden bg-shop_light_bg">
@@ -28,8 +29,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             />
           </Link>
         )}
-        <AddToWishlistButton product={product} />
-        {/*<ProductsSideMenu product={product} />*/}
+        <FavoriteContainer product={product} />
         {product?.status === "sale" ? (
           <p className="absolute top-2 left-2 z-10 text-xs border border-darkColor/50 px-2 rounded-full group-hover:border-lightGreen hover:text-shop_dark_green hoverEffect">
             Sale!
@@ -70,11 +70,11 @@ const ProductCard = ({ product }: { product: Product }) => {
         </div>
 
         <div className="flex items-center gap-2.5">
-          <p className="font-medium">In Stock</p>
+          <p className="font-medium">{product?.stock as number > 0 && 'In Stock'}</p>
           <p
-            className={`${product?.stock === 0 ? "text-red-600" : "text-shop_dark_green/80 font-semibold"}`}
+            className={`${product?.stock === 0 as number ? "text-red-600" : "text-shop_dark_green/80 font-semibold px-0"}`}
           >
-            {(product?.stock as number) > 0 ? product?.stock : "unavailable"}
+            {(product?.stock as number) > 0 ? product?.stock : "Unavailable"}
           </p>
         </div>
 

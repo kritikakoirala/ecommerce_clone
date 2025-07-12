@@ -45,7 +45,10 @@ export default async function ShopByBrands() {
         {
           brands?.map((brand: Brand) => {
             return (
-              <Link href={`/brand/${brand?.slug?.current}`} key={brand?._id} className="bg-shop_light_bg flex items-center gap-2 group overflow-hidden bg-white rounded-md w-34 h-24 flex items-center justify-center hover:shadow-lg hover:shadow-shop_dark_green/20 hoverEffect">
+              <Link
+
+                href={{ pathname: 'shop', query: { brand: brand?.slug?.current } }}
+                key={brand?._id} className="bg-shop_light_bg flex items-center gap-2 group overflow-hidden bg-white rounded-md w-34 h-24 flex items-center justify-center hover:shadow-lg hover:shadow-shop_dark_green/20 hoverEffect">
                 {
                   brand?.image &&
 

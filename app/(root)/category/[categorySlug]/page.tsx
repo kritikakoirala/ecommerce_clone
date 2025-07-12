@@ -1,4 +1,3 @@
-// import CategoryProduct from "@/components/categories/CategoryProducts"
 import Container from "@/components/Container"
 import { Title } from "@/components/ui/text"
 import { getCategories } from "@/sanity/queries"

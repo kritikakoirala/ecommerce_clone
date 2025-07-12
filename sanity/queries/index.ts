@@ -1,6 +1,6 @@
 import { client } from "../lib/client";
 import { sanityFetch } from "../lib/live";
-import { FETCH_BRANDS_QUERY, FETCH_HOT_DEALS_QUERY, FETCH_LATEST_BLOGS, FETCH_PRODUCTS_BY_CATEGORY, FETCH_PRODUCTS_QUERY } from "./query";
+import { FETCH_BRAND_BY_SLUG_QUERY, FETCH_BRANDS_QUERY, FETCH_HOT_DEALS_QUERY, FETCH_LATEST_BLOGS, FETCH_PRODUCT_BY_SLUG_QUERY, FETCH_PRODUCTS_BY_CATEGORY, FETCH_PRODUCTS_QUERY } from "./query";
 
 const getCategories = async (quantity?: number) => {
   try {
@@ -62,6 +62,35 @@ const getHotDeals = async () => {
 }
 
 
+const getProductsBySlugs = async (slug: string) => {
+  try {
+    const { data } = await sanityFetch({
+      query: FETCH_PRODUCT_BY_SLUG_QUERY, params: {
+        productSlug: slug
+      }
+    })
+    return data ?? []
+
+  } catch (error) {
+    console.error("Error fetching products", error)
+    return []
+  }
+}
+
+const getBrandBySlug = async (slug: string) => {
+  try {
+    const { data } = await sanityFetch({
+      query: FETCH_BRAND_BY_SLUG_QUERY, params: {
+        slug: slug
+      }
+    })
+    return data ?? []
+
+  } catch (error) {
+    console.error("Error fetching products", error)
+    return []
+  }
+}
 
 
-export { getCategories, getBrands, getLatestBlogs, getHotDeals }
+export { getCategories, getBrands, getLatestBlogs, getHotDeals, getProductsBySlugs, getBrandBySlug }
