@@ -8,7 +8,7 @@
 
 This is a **fully functional demo e-commerce store** built with modern tools like **Next.js 15**, **Sanity**, **Stripe**, and **Tailwind CSS**. It serves as a **learning project** for myself, showcasing how to build a scalable, full-stack storefront using popular open-source technologies.
 
-> ⚠️ This project is built for **educational/demo purposes only**.
+> ⚠️ This project is built for **educational/learning purposes only**.
 
 > 🔗 **Live Demo:** [https://ecommerce-clone-zeta.vercel.app](https://ecommerce-clone-zeta.vercel.app)
 
